@@ -6,7 +6,7 @@ import { Grid } from "@material-ui/core";
 import Controls from "./controls/Controls";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import logo from "/Users/rithueswaramoorthy/venus-hacks/src/CARB.png";
+import logo from "../CARB.png";
 
 import { useForm, Form } from "./useForm";
 
@@ -26,12 +26,19 @@ const initialFValues = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 1,
+    display: "inline-flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justify: "center",
     color: "blue",
+    padding: 80,
   },
   paper: {
-    // padding: theme.spacing(100),
-    // margin: "auto",
+    padding: theme.spacing(10),
+    margin: "auto",
+    minWidth: "300px",
+    minHeight: "400px",
+    alignContent: "center"
     // maxWidth: 100,
   },
 }));
@@ -104,33 +111,34 @@ export default function HomePage() {
   return (
     <div>
       {Object.keys(carbonEmission).length === 0 ? (
-        <div
-          style={{ padding: 16, margin: "auto", maxWidth: 500 }}
-          className={classes.root}
-        >
-          {/* <div><TextField id="username" label="Username" color="secondary" /></div>
-          <div><TextField id="password" label="Password" color="secondary" /></div> */}
-          <Paper elevation={3} className={classes.paper}>
-            <Grid item>
-              {/* <ButtonBase className={classes.image}> */}
-              <img className={classes.root} alt="logo" src={logo} />
-              {/* </ButtonBase> */}
+        <div className={classes.root}>
+          <div>
+            <Grid
+              container
+              direction={"column"}
+              justify="center"
+              style={{ minHeight: "50vh", minWidth: "50vh" }}
+            >
+              <Grid item>
+                <img alt="logo" src={logo} width="400" />
+              </Grid>
+              <Grid alignItems>
+                <img
+                  alt="complex"
+                  src="https://freeiconshop.com/wp-content/uploads/edd/car-flat.png"
+                />
+              </Grid>
             </Grid>
-            <Grid alignItems>
-              {/* <ButtonBase className={classes.image}> */}
-              <img
-                className={classes.root}
-                alt="complex"
-                src="https://freeiconshop.com/wp-content/uploads/edd/car-flat.png"
-              />
-              {/* </ButtonBase> */}
-            </Grid>
-            <Typography variant="h6" align="center" gutterBottom>
-              Calculate the CO2 emissions for your trip!
-            </Typography>
-            {/* <Grid item xs={6} spacing={2} container direction="column"> */}
-            <Grid container alignItems="flex-start" gridGap={10} spacing={5}>
-              <Grid item xs={12}>
+          </div>
+
+          <div className={classes.root}>
+            <Paper elevation={2} className={classes.paper}>
+              <Grid container textalign="center" direction="column" spacing={4}>
+                <Grid item>
+                  <Typography variant="h5" align="center" gutterBottom>
+                    Calculate the CO2 emissions for your trip!
+                  </Typography>
+                </Grid>
                 <Grid item>
                   <Controls.Input
                     name="startZipCode"
@@ -161,19 +169,17 @@ export default function HomePage() {
                 <Grid item>
                   <Button
                     variant="contained"
-                    backgroundColor="#0063cc"
+                    color="primary"
                     onClick={(e) => handleSubmit(e)}
                   >
                     Submit
                   </Button>
                 </Grid>
               </Grid>
-            </Grid>
-            {/* <Button variant="contained"  onClick={() => this.handleClick()}>Submit</Button> */}
-          </Paper>
+            </Paper>
+          </div>
         </div>
       ) : (
-        // </Grid>
         <DisplayCarbonEmission
           carbonEmission={carbonEmission}
           distance={distance}
