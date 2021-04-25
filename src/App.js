@@ -1,13 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Login from './Login.jsx';
-import {Homepage} from './components/dataCollectionPage';
+import HomePage from './components/homePage';
 
 function App() {
   return (
     <div className="App">
-      <Login/>
-      {/* <Homepage/> */}
+      <HomePage/>
     </div>
   );
 }
