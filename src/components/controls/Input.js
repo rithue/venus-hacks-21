@@ -6,6 +6,7 @@ export default function Input(props) {
     const { name, label, value,error=null, onChange } = props;
     return (
         <TextField
+            required
             variant="filled"
             size="small"
             label={label}

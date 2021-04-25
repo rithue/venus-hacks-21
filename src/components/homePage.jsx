@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     // padding: theme.spacing(100),
-    margin: "auto",
+    // margin: "auto",
     // maxWidth: 100,
   },
 }));
@@ -129,7 +129,7 @@ export default function HomePage() {
               Calculate the CO2 emissions for your trip!
             </Typography>
             {/* <Grid item xs={6} spacing={2} container direction="column"> */}
-            <Grid container alignItems="flex-start" spacing={5}>
+            <Grid container alignItems="flex-start" gridGap={10} spacing={5}>
               <Grid item xs={12}>
                 <Grid item>
                   <Controls.Input
@@ -177,6 +177,7 @@ export default function HomePage() {
         <DisplayCarbonEmission
           carbonEmission={carbonEmission}
           distance={distance}
+          fueltype={values.fuelType}
         />
       )}
     </div>
