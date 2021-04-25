@@ -25,12 +25,13 @@ export class Homepage extends React.Component {
   getDistance = (startZipCode,endZipCode) => {
       try {
         fetch(
-            `/carbonContent?startZipCode=${startZipCode}&endZipCode=${endZipCode}/mile`
+            `/carbonContent?startZipCode=${startZipCode}&endZipCode=${endZipCode}&fuelType=hybrid`
         )
         .then((response) => {
             return response.json();
         })
         .then((jsonResp) => {
+            console.log('response: ',jsonResp)
             return jsonResp.distance
         })
 
